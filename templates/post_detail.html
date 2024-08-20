@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+Post Detail Page
+{% endblock %}
+
+{% block content%}
+<div>
+
+    <h2 class="mt-0 ml-3"> {{post.title}} </h2>
+
+    <p class="ml-3">{{post.content}}</p>
+
+    <p class="ml-3"><i>By {{ post.users.full_name }}</i></p>
+
+    <div class="ml-3">
+        <a class="btn btn-outline-info" href="/users/{{post.user_id}}">Cancel</a>
+        <a href="/posts/{{ post.id }}/edit" class="btn btn-primary">Edit</a>
+
+        <form action="/posts/{{ post.id }}/delete" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
